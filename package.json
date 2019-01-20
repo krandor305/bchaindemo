@@ -1,0 +1,24 @@
+{
+  "name": "blockchain2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "blockchain.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krandor305/bchaindemo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krandor305/bchaindemo/issues"
+  },
+  "homepage": "https://github.com/krandor305/bchaindemo#readme",
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  }
+}

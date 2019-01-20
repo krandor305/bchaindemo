@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+Votre blockchain:
+        <form action="/" method="post" id="formulaire_chat">
+            <input type="number" name="message" id="message" placeholder="montant à envoyer" size="50" autofocus required />
+            <select id="destinataire" required>
+            </select>
+            <input type="submit" id="envoi_message" value="Envoyer" />
+        </form>
+
+        <section id="zone_chat">
+    
+        </section>
+
+
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io.connect('http://localhost:8000');
+            var pseudo = prompt('Quel est votre pseudo ?');
+            socket.emit('nouveau', pseudo);
+
+            socket.on('generatenew', function(data) {//recoit
+                for(var client in data.users)
+                {
+                    $("#destinataire").prepend("<option value='" + data.users[client] + "' selected>" + data.users[client] + "</option>");
+                }
+                for(var i in data.blockchain)
+                {
+                    $('#zone_chat').prepend(data.blockchain[i]);
+                }
+            })
+
+            socket.on('message', function(message) {//recoit
+                insereMessage(message)
+            })
+
+            socket.on('nouveau', function(pseudo) {
+                $("#destinataire").prepend("<option value='" + pseudo + "' selected>" + pseudo + "</option>");
+            })
+
+            $('#formulaire_chat').submit(function () {//envoie
+                var message = $('#message').val();
+                var to = $('#destinataire').val();
+                socket.emit('message', {message:message,to:to});
+                $('#message').val('').focus(); 
+                return false; 
+            })
+            
+            function insereMessage(message) {
+                $('#zone_chat').prepend(message);
+            };
+        </script>
+</body>
+</html>
