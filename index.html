@@ -21,7 +21,6 @@ Votre blockchain:
             var socket = io.connect();
             var pseudo = prompt('Quel est votre pseudo ?');
             socket.emit('nouveau', pseudo);
-            alert('Client connected');
             
 
             socket.on('generatenew', function(data) {//recoit
@@ -33,6 +32,7 @@ Votre blockchain:
                 {
                     $('#zone_chat').prepend(data.blockchain[i]);
                 }
+                alert('Client connected');
             })
 
             socket.on('message', function(message) {//recoit
