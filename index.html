@@ -46,7 +46,7 @@ Votre blockchain:
             $('#formulaire_chat').submit(function () {//envoie
                 var message = $('#message').val();
                 var to = $('#destinataire').val();
-                //socket.emit('message', {message:message,to:to});
+                socket.emit('message', {message:message,to:to});
                 $('#message').val('').focus(); 
                 return false; 
             })
