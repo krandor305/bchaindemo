@@ -20,8 +20,8 @@ Votre blockchain:
         <script>
             var socket = io.connect();
             var pseudo = prompt('Quel est votre pseudo ?');
-            alert('Client connected');
             socket.emit('nouveau', pseudo);
+            alert('Client connected');
             
 
             socket.on('generatenew', function(data) {//recoit
