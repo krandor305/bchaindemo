@@ -26,6 +26,7 @@ Votre blockchain:
             socket.on('generatenew', function(data) {//recoit
                 for(var client in data.users)
                 {
+                    alert("d");
                     $("#destinataire").prepend("<option value='" + data.users[client] + "'>" + data.users[client] + "</option>");
                 }
                 for(var i in data.blockchain)
