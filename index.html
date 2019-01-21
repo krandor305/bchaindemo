@@ -5,6 +5,7 @@ Votre blockchain:
         <form action="/" method="post" id="formulaire_chat">
             <input type="number" name="message" id="message" placeholder="montant à envoyer" size="50" autofocus required />
             <select id="destinataire" required>
+            <option value='other' selected>other</option>
             </select>
             <input type="submit" id="envoi_message" value="Envoyer" />
         </form>
@@ -24,7 +25,7 @@ Votre blockchain:
             socket.on('generatenew', function(data) {//recoit
                 for(var client in data.users)
                 {
-                    $("#destinataire").prepend("<option value='" + data.users[client] + "' selected>" + data.users[client] + "</option>");
+                    $("#destinataire").prepend("<option value='" + data.users[client] + "'>" + data.users[client] + "</option>");
                 }
                 for(var i in data.blockchain)
                 {
