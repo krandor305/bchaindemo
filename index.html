@@ -42,8 +42,7 @@ Votre blockchain:
                 $("#destinataire").prepend("<option value='" + pseudo + "' selected>" + pseudo + "</option>");
             })
 
-            $('#formulaire_chat').submit(function () {
-                alert("envoi");//envoie
+            $('#formulaire_chat').submit(function () {//envoie
                 var message = $('#message').val();
                 var to = $('#destinataire').val();
                 socket.emit('message', {message:message,to:to});
