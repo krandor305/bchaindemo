@@ -28,7 +28,7 @@ io.sockets.on('connection',function(socket)
     });
 });
 
-server.listen(8000);
+server.listen(process.env.PORT || 8000);
 
 class block
 {
