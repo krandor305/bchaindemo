@@ -18,9 +18,9 @@ Votre blockchain:
         <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
         <script type="text/javascript" src="/socket.io/socket.io.js"></script>
         <script>
-            var socket = io.connect(window.location.hostname);
+            var socket = io.connect();
             var pseudo = prompt('Quel est votre pseudo ?');
-            console.log('Client connected');
+            alert('Client connected');
             socket.emit('nouveau', pseudo);
             
 
