@@ -21,6 +21,7 @@ Votre blockchain:
             var socket = io();
             var pseudo = prompt('Quel est votre pseudo ?');
             socket.emit('nouveau', pseudo);
+            console.log('Client connected');
 
             socket.on('generatenew', function(data) {//recoit
                 for(var client in data.users)
