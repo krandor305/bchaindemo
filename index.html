@@ -32,7 +32,7 @@ Votre blockchain:
                 {
                     $('#zone_chat').prepend(data.blockchain[i]);
                 }
-                alert('Client connected');
+                alert(data.users[0]);
             })
 
             socket.on('message', function(message) {//recoit
