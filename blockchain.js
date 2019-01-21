@@ -10,7 +10,7 @@ blockverif=[];
 
 app.get('/',function(req,res)
 {
-    res.sendfile(__dirname +'index.html');
+    res.sendfile('index.html');
 });
 
 io.sockets.on('connection',function(socket)
