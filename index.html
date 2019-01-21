@@ -15,7 +15,7 @@ Votre blockchain:
         </section>
 
 
-        <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="/socket.io/socket.io.js"></script>
         <script>
             var socket = io.connect();
@@ -26,7 +26,6 @@ Votre blockchain:
             socket.on('generatenew', function(data) {//recoit
                 for(var client in data.users)
                 {
-                    alert("d");
                     $("#destinataire").prepend("<option value='" + data.users[client] + "'>" + data.users[client] + "</option>");
                 }
                 for(var i in data.blockchain)
