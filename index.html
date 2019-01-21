@@ -32,7 +32,6 @@ Votre blockchain:
                 {
                     $('#zone_chat').prepend(data.blockchain[i]);
                 }
-                alert(data.users[0]);
             })
 
             socket.on('message', function(message) {//recoit
@@ -43,7 +42,8 @@ Votre blockchain:
                 $("#destinataire").prepend("<option value='" + pseudo + "' selected>" + pseudo + "</option>");
             })
 
-            $('#formulaire_chat').submit(function () {//envoie
+            $('#formulaire_chat').submit(function () {
+                alert("envoi");//envoie
                 var message = $('#message').val();
                 var to = $('#destinataire').val();
                 socket.emit('message', {message:message,to:to});
